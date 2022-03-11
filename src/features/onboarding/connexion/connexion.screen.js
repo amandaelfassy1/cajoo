@@ -57,8 +57,10 @@ class Connexion extends React.Component {
         </View>
         <View style={styles.bottomView}>
           <Text style={styles.subtitle}>
-            En cliquant sur "CONTINUER", vous acceptez la Politique
-            Confidentialité, les CGU et les CGV de Cajoo.
+            En cliquant sur "CONTINUER", vous acceptez la
+            <Text style={styles.link}> Politique de Confidentialité</Text>, les
+            <Text style={styles.link}>CGU</Text>et les
+            <Text style={styles.link}>CGV</Text> de Cajoo
           </Text>
           <TouchableOpacity
             onPress={isDisabled ? null : this.openConfirmation}

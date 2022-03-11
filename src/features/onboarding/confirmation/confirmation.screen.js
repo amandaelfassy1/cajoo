@@ -1,36 +1,29 @@
-import React from 'react';
-import {Text, View, TouchableOpacity, Image, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View} from 'react-native';
 import styles from './confirmation.styles';
 import Header from '../header/header.screen';
+import Input from './components/input';
 
-class Confirmation extends React.Component {
-  render() {
-    return (
-      <View style={styles.main}>
-        <Header />
-        <View>
-          <Text style={styles.text}>Quel est votre numéro ?</Text>
-          <Text style={styles.subtitle}>
-            Pour que notre livreur puisse vous contacter 😄
-          </Text>
-          <View>
-            <TouchableOpacity>
-              <Image
-                source={require('../../../assets/france.png')}
-                style={styles.icon}
-              />
-            </TouchableOpacity>
-          </View>
+export default function Confirmation() {
+  const [code, setCode] = useState('');
+  const activeChange = payload => {
+    setCode(payload);
+  };
+
+  return (
+    <View style={styles.main}>
+      <Header />
+      <View style={styles.header}>
+        <Text style={styles.title}>Confirmez votre numéro !</Text>
+        <Text style={styles.subtitle}>Entrez le code envoyé au +33</Text>
+        <View style={styles.inputContainer}>
+          <Input position={1} code={code} setCode={activeChange} />
         </View>
-        <View style={styles.bottomView}>
-          <Text style={styles.subtitle}>
-            En cliquant sur "CONTINUER", vous acceptez la Politique
-            Confidentialité, les CGU et les CGV de Cajoo.
-          </Text>
-        </View>
+        <Text style={styles.subtitle}>
+          Vous n'avez pas reçu le code ?{' '}
+          <Text style={styles.link}>Renvoyer</Text>
+        </Text>
       </View>
-    );
-  }
+    </View>
+  );
 }
-
-export default Confirmation;

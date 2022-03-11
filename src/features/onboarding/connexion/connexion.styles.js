@@ -17,11 +17,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Obviously-Black',
   },
+  link: {
+    textDecorationLine: 'underline',
+    color: 'red',
+  },
   subtitle: {
     color: '#504E63',
     marginTop: 10,
     textAlign: 'center',
     fontFamily: 'Inter-Black',
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 
   icon: {
@@ -33,6 +39,7 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
+    marginTop: 20,
     backgroundColor: '#dddddd',
     width: width * 0.9,
     height: 45,
