@@ -11,12 +11,6 @@ export default function Code({code = '', isFocus = false}) {
 }
 
 const styles = StyleSheet.create({
-  focusCode: focused => {
-    return {
-      borderColor: focused ? 'red' : 'transparent',
-      borderWidth: 2,
-    };
-  },
   content: {
     backgroundColor: '#DDDDDD',
     width: '100%',
@@ -32,5 +26,11 @@ const styles = StyleSheet.create({
   textCode: {
     fontFamily: 'Inter-Black',
     textAlign: 'center',
+  },
+  focusCode: focused => {
+    return {
+      borderColor: focused ? 'red' : 'transparent',
+      borderWidth: 2,
+    };
   },
 });

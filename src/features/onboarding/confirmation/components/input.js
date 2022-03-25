@@ -9,6 +9,8 @@ export default function Input({code, setCode, position, ...props}) {
       <Code code={code[1]} />
       <Code code={code[2]} />
       <Code code={code[3]} />
+      <Code code={code[4]} />
+      <Code code={code[5]} />
       <TextInput
         keyboardType="numeric"
         {...props}
