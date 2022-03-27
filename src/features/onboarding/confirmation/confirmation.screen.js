@@ -7,7 +7,11 @@ import {Auth} from 'aws-amplify';
 
 export default function Confirmation({route: {params}}) {
   const [code, setCode] = useState('');
+<<<<<<< HEAD
   const active = async payload => {
+=======
+  const active = payload => {
+>>>>>>> dc1a563885d6ca7f8582b51d626cf53c6b831fc7
     setCode(payload);
 
     if (payload.length === 6) {
