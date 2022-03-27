@@ -1,13 +1,29 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Alert} from 'react-native';
 import styles from './confirmation.styles';
 import Header from '../header/header.screen';
 import Input from './components/input';
+import {Auth} from 'aws-amplify';
 
-export default function Confirmation() {
+export default function Confirmation({route: {params}}) {
   const [code, setCode] = useState('');
-  const activeChange = payload => {
+  const active = async payload => {
     setCode(payload);
+
+    if (payload.length === 6) {
+      try {
+        if (params.alreadyExist) {
+          await Auth.confirmSignUp(params.phone, payload);
+        }
+      } catch (error) {
+        Alert.alert('Le code est incorrect', 'veuillez réessayer', [
+          {
+            text: 'Fermer',
+            style: 'cancel',
+          },
+        ]);
+      }
+    }
   };
 
   return (
@@ -17,7 +33,7 @@ export default function Confirmation() {
         <Text style={styles.title}>Confirmez votre numéro !</Text>
         <Text style={styles.subtitle}>Entrez le code envoyé au +33</Text>
         <View style={styles.inputContainer}>
-          <Input position={1} code={code} setCode={activeChange} />
+          <Input code={code} setCode={active} />
         </View>
         <Text style={styles.subtitle}>
           Vous n'avez pas reçu le code ?{' '}
