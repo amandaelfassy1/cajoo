@@ -4,14 +4,12 @@ import styles from './confirmation.styles';
 import Header from '../header/header.screen';
 import Input from './components/input';
 import {Auth} from 'aws-amplify';
+import {useNavigation} from '@react-navigation/core';
 
 export default function Confirmation({route: {params}}) {
+  const navigation = useNavigation();
   const [code, setCode] = useState('');
-<<<<<<< HEAD
   const active = async payload => {
-=======
-  const active = payload => {
->>>>>>> dc1a563885d6ca7f8582b51d626cf53c6b831fc7
     setCode(payload);
 
     if (payload.length === 6) {
@@ -20,7 +18,7 @@ export default function Confirmation({route: {params}}) {
           await Auth.confirmSignUp(params.phone, payload);
         }
       } catch (error) {
-        Alert.alert('Le code est incorrect', 'veuillez réessayer', [
+        Alert.alert('Code incorrect', 'veuillez réessayer', [
           {
             text: 'Fermer',
             style: 'cancel',

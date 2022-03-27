@@ -44,11 +44,7 @@ class Connexion extends React.Component {
     try {
       console.log('test');
       const {user} = await Auth.signUp({
-<<<<<<< HEAD
-        username: '+33651637652',
-=======
         username: '+33651689573',
->>>>>>> dc1a563885d6ca7f8582b51d626cf53c6b831fc7
         password: 'Amanda30',
       });
       console.log('utilisateur créé:', user);
